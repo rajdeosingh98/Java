@@ -1,0 +1,16 @@
+Q: How to timeout a thread? for Example 10 minutes.
+Ans:
+
+public static void main(String []args)
+{
+  MyTask task =  new MyTask();
+  Thread t1 = new Thread(task);
+  t1.start();
+  
+  ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+  scheduler.schedule(() -> { 
+      task.stop();
+      },10,TimeUnit.MINUTES);
+}
+    
+    
