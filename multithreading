@@ -12,5 +12,25 @@ public static void main(String []args)
       task.stop();
       },10,TimeUnit.MINUTES);
 }
+
+
+//Another way
+
+ExectorService threadPool = Exectors.newFixedThreadPool(2);
+MyTask task = new MyTask();
+
+final Future<?> future = threadPool.submit(task);
+
+try{
+  future.get(10,TimeUnit.MINUTES);
+  }catch(InterruptedException | ExecutionException e)
+  { }
+  catch(TimeoutException e)
+  {
+    future.cancel(true);
+    task.stop();
+    }
+   }
     
+
     
