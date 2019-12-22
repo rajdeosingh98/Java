@@ -1,0 +1,25 @@
+ExecutorService 
+Java's thread pool framework
+
+  FixedThread pool
+	CachedThreadPool
+	ScheduledThreadExecutor
+	SingleThreadExecutor
+  
+  
+  ExecutorService service = Executors.newFixedThreadPoll(10)
+	service.execute(new Task());
+  
+  //thread pool executor working internal 
+  
+  
+  
+  
+  ExecutorService service = Executor.newCachedThreadPool(); 
+	service.execute(new Task());
+  
+  cached_pool_internal_working..
+  
+  
+  
+	
