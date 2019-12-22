@@ -1,0 +1,26 @@
+CompletableFuture In Java8
+	
+  
+	So for above example if we want to execute in multithreading env using ThreadPool we have to implement the code like this.
+	
+	try{
+		Future<Order> future = service.submit(getOrderTask());
+		Order order = future.get();
+	
+		Future<Order> future1 = service.submit(enrichTask(order));
+		Order order = future1.get();
+		
+		Future<Order> future2 = service.submit(performPaymentTask(order));
+		Order order = future2.get();
+		
+		Future<Order> future3 = service.submit(dispatchTask(order));
+		Order order = future3.get();
+		
+		Future<Order> future4 = service.submit(sendEmailTask(order));
+		Order order = future4.get();
+		
+	}
+	catch(InterruptedException | ExecutionException e)
+	{
+		e.printStackTrace();
+	}
