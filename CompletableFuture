@@ -24,3 +24,14 @@ CompletableFuture In Java8
 	{
 		e.printStackTrace();
 	}
+
+
+To Overcome this problem ComopletableFuture is introduced.
+
+CompltableFutrue.supplyAsync(() ->getOrder())
+	.thenApply(order->enrich(order))
+	.thenApply(order->performPayment(order))
+	.thenApply(order->dispatch(order))
+	.thenapply(ordre->sendEmail(order));
+}
+}
