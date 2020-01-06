@@ -1,0 +1,25 @@
+Generational Collectors;
+
+yound generation:
+
+	Eden space; 
+		surviour space from 
+		survivor to 
+	
+
+
+Old Generation:
+	
+=======================================================
+
+(monor GC)--->
+Eden;
+	Survivor1 		         Survivor2
+	--survivedOjbect1	   --survivedOject2
+				               --survivedOjbect1
+
+=======================================================
+
+
+
+	  
