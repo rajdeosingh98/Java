@@ -27,7 +27,8 @@ public static void main(String []ar) {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("printll....");
+            //ADD PRINT TASK TO PRINTER 
+            System.out.println("Print New Task.....");
 
             semaphore.release();
         }
