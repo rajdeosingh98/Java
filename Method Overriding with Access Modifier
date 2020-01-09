@@ -1,0 +1,93 @@
+Method Overriding with Access Modifier
+Prerequisites: Method Overriding in java and Access Modifier in Java
+
+Method Overriding
+In any object-oriented programming language, Overriding is a feature that allows a subclass or child class to provide a specific implementation of a method that is already provided by its super-class or parent class. When a method in a subclass has the same name, same parameters or signature and same return type(or sub-type) as a method in its super-class, then the method in the subclass is said to override the method in the super-class.
+Method overriding is one of the ways by which java achieve Run Time Polymorphism. The version of a method that is executed will be determined by the object that is used to invoke it. If an object of a parent class is used to invoke the method, then the version in the parent class will be executed, but if an object of the subclass is used to invoke the method, then the version in the child class will be executed. In other words, it is the type of the object being referred to (not the type of the reference variable) that determines which version of an overridden method will be executed.
+
+Access Modifiers
+As the name suggests, access modifiers in Java help to restrict the scope of a class, constructor, variable, method or data member. There are four types of access modifiers available in java:
+
+
+
+ 
+
+Default – No keyword required
+Private
+Protected
+Public
+Method Overriding with Access Modifiers
+Their is Only one rule while doing Method overriding with Access modifiers i.e.
+
+If you are overriding any method, overridden method (i.e. declared in subclass) must not be more restrictive.
+
+Access modifier restrictions in decreasing order:
+
+private
+default
+protected
+public
+i.e. private is more restricted then default and default is more restricted than protected and so on.
+
+Example 1:
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+class A { 
+    protected void method() 
+    { 
+        System.out.println("Hello"); 
+    } 
+} 
+  
+public class B extends A { 
+  
+    // Compile Time Error 
+    void method() 
+    { 
+        System.out.println("Hello"); 
+    } 
+  
+    public static void main(String args[]) 
+    { 
+        B b = new B(); 
+        b.method(); 
+    } 
+} 
+Output:
+Compile Time Error
+Note: In the above Example Superclass class A defined a method whose access modifier is protected. While doing method overriding in SubClass Class B we didn’t define any access modifier so Default access modifier will be used. By the rule, Default is more restricted then Protected so this program will give compile time error. Instead of default, we could’ve used public which is less restricted then protected.
+
+Example 2:
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+class A { 
+    protected void method() 
+    { 
+        System.out.println("Hello"); 
+    } 
+} 
+  
+public class B extends A { 
+    public void method() 
+    { 
+        System.out.println("Hello"); 
+    } 
+  
+    public static void main(String args[]) 
+    { 
+        B b = new B(); 
+        b.method(); 
+    } 
+} 
+Output:
+Hello
+Note: In the above Example Superclass class A defined a method whose access modifier is protected. While doing method overriding in SubClass Class B we define access modifier as Public. Because Public access modifier is less restricted than Protected hence this program compiles successfully.
+
