@@ -2,3 +2,14 @@
 curl -XGET localhost:9200/_cat/shards?h=index,shard,prirep,state,unassigned.reason| grep UNASSIGNED
 
 more https://www.datadoghq.com/blog/elasticsearch-unassigned-shards/
+
+##change setting in command line  like cluser and node related information should be added on command line.
+
+./bin/elasticsearch -d -Ecluster.name=my_cluster -Enode.name=node_1
+
+##export elasticsearch config path
+ES_PATH_CONF=/path/to/my/config ./bin/elasticsearch
+
+###logging of elasticsearch
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html
