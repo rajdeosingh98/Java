@@ -13,3 +13,42 @@ ES_PATH_CONF=/path/to/my/config ./bin/elasticsearch
 ###logging of elasticsearch
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html
+
+
+##adding an index on cluster
+curl -X PUT "localhost:9200/blogs?pretty" -H 'Content-Type: application/json' -d'
+{
+   "settings" : {
+      "number_of_shards" : 3,
+      "number_of_replicas" : 1
+   }
+}
+'
+
+
+curl -XPUT "localhost:9200/blogs/_settings?pretty" -H 'Content-Type: application/json' -d'
+{
+  "settings": {
+    "index.unassigned.node_left.delayed_timeout": "5m"
+  }
+}'
+
+###########################
+
+https://stackoverflow.com/questions/23113433/elasticsearch-clustering-on-multiple-machines-master-election?rq=1
+
+
+3
+
+If you are running to nodes on one machine, it is probably better to add ports to your configuration.
+
+ discovery.zen.ping.unicast.hosts: ["machine1:9300", "machine2:9300", "machine2:9301"]
+Than also configure the ports yourself so you know which node has which port:
+
+ transport.tcp.port: 9300
+ http.port: 9200
+
+
+
+
+
