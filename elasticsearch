@@ -38,6 +38,9 @@ curl -XPUT "localhost:9200/blogs/_settings?pretty" -H 'Content-Type: application
 https://stackoverflow.com/questions/23113433/elasticsearch-clustering-on-multiple-machines-master-election?rq=1
 
 
+https://discuss.elastic.co/t/master-node-and-data-node-configuration/132259/3
+
+
 3
 
 If you are running to nodes on one machine, it is probably better to add ports to your configuration.
