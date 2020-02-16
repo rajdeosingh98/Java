@@ -1,0 +1,9 @@
+<!-- for phonetic (sounds-like) indexing -->
+<fieldType name="phonetic" class="solr.TextField"
+ positionIncrementGap="100">
+ <analyzer>
+ <tokenizer class="solr.StandardTokenizerFactory"/>
+ <filter class="solr.DoubleMetaphoneFilterFactory"
+ inject="false" maxCodeLength="8"/>
+ </analyzer>
+</fieldType>
